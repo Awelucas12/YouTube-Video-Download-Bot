@@ -29,7 +29,7 @@ ABOUT_TXT = """
 ├👥 **Support Group** : [NT BOTS SUPPORT](https://t.me/zionsupportchat)
 ├🥏 **Channel** : [NT BOT CHANNEL](https://t.me/zionmainchannel)
 ├⛲ **Source** : [Click](https://github.com/LISA-KOREA/YouTube-Video-Download-Bot)
-├🎓 **Developer** : [LISA_FAN_LK](https://t.me/zion_owner)
+├🎓 **Developer** : [ZION ](https://t.me/zion_owner)
 ╰───────────────⍟
 """
 
@@ -57,14 +57,14 @@ async def start(client, message):
     await message.reply_text(START_TXT.format(message.from_user.first_name), reply_markup=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('📍 Update Channel', url='https://t.me/zionmainchannel'),
+                InlineKeyboardButton('📍 አዲስ ነገር ስኖር ማሳወቅያ ቻናል ', url='https://t.me/zionmainchannel'),
             ],
             [
                 InlineKeyboardButton('👩‍💻 Developer', url='https://t.me/Zion_owner'),
-                InlineKeyboardButton('👥 Support Group', url='https://t.me/zionsupportchat'),
+                InlineKeyboardButton('👥 እገዛ ግሩፕ ', url='https://t.me/zionsupportchat'),
             ],
             [
-                InlineKeyboardButton('⛔️ Close', callback_data='cancel')
+                InlineKeyboardButton('⛔️ ዝጋ ', callback_data='cancel')
             ]
         ]
     ))
@@ -73,13 +73,13 @@ async def start(client, message):
 @app.on_message(filters.command("help"))
 def help(client, message):
     help_text = """
-    Welcome to the YouTube Video Uploader Bot!
+    እንኳን ወደ YouTube ቪዲዮ ማውረጃ bot መጡ !
 
-To upload a YouTube video, simply send me the YouTube link.
+እድወርድላችሁ የፈለጋችሁትን ቪዲዮ ሊንክ እዝህጋ pest ያድርጉ .
     
 Enjoy using the bot!
 
-   ©️ Channel : @NT_BOT_CHANNEL
+   ©️ Channel : @zionmainchannel
     """
     message.reply_text(help_text)
 
@@ -106,7 +106,7 @@ async def process_youtube_link(client, message):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(youtube_link, download=False)
             title = info_dict.get('title', None)
-
+            
             if title:
                 ydl.download([youtube_link])
 
@@ -114,24 +114,24 @@ async def process_youtube_link(client, message):
                 uploading_msg = await message.reply_text("Uploading video...")
 
                 # Send the video file to the user
-                video_filename = f"downloaded_video_{info_dict['id']}.mp4"
+                video_filename = f"downloaded_video_{info_dict['id']}720.mp4"
                 sent_message = await app.send_video(message.chat.id, video=open(video_filename, 'rb'), caption=title)
 
 
                 # Delay for a few seconds and delete downloading and uploading
-                await asyncio.sleep(2)
+                await asyncio.sleep(1)
                 await downloading_msg.delete()
                 await uploading_msg.delete()
 
                 # Send successful upload message
-                await message.reply_text("\n\nOWNER : @Zion_owner \n\nSUCCESSFULLY UPLOADED!")
+                await message.reply_text("\n\nOWNER : @Zion_owner \n\n በተሳካ ሁኔታ ቪዲዮውን አውርዴናል !")
             else:
                 logging.error("No video streams found.")
-                await message.reply_text("Error: No downloadable video found.")
+                await message.reply_text("Error: No download.")
 
     except Exception as e:
-        logging.exception("Error processing YouTube link: %s", e)
-        await message.reply_text("Error: Failed to process the YouTube link. Please try again later.")
+        logging.exception(" processing YouTube link: %s", e)
+        await message.reply_text("እባክዎትን ትንሽ ይጠብቁ እየወረዴ ነው.............")
 
 # Start the bot
 print("🎊 I AM ALIVE 🎊")
