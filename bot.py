@@ -9,7 +9,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceRepl
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 API_ID = '25595324'
 API_HASH = '0102b3dbf501dc0fb3176d4c9685eec8'
-BOT_TOKEN = '7185593705:AAE1P6aTEjJ7bpsd4uMIJGBlLyfwc0lknLE'
+BOT_TOKEN = '7003114561:AAE63lzRuq9h5JW9bWUIMMHZfXvj8zJaZFw'
 # Skip Or add your proxy link
 HTTP_PROXY = ''
 youtube_dl_username = None  
@@ -114,7 +114,7 @@ async def process_youtube_link(client, message):
                 uploading_msg = await message.reply_text("Uploading video...")
 
                 # Send the video file to the user
-                video_filename = f"downloaded_video_{info_dict['id']}720.mp4"
+                video_filename = f"downloaded_video_{info_dict['id']}.mp4"
                 sent_message = await app.send_video(message.chat.id, video=open(video_filename, 'rb'), caption=title)
 
 
