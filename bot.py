@@ -9,7 +9,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceRepl
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 API_ID = '25595324'
 API_HASH = '0102b3dbf501dc0fb3176d4c9685eec8'
-BOT_TOKEN = '6579990441:AAGrALfx4OS_KWDEnaNLYkARNyI4GNelNJA'
+BOT_TOKEN = '7185593705:AAE1P6aTEjJ7bpsd4uMIJGBlLyfwc0lknLE'
 # Skip Or add your proxy link
 HTTP_PROXY = ''
 youtube_dl_username = None  
